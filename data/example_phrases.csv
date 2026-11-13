@@ -1,0 +1,41 @@
+phrase,intent,amount,contact_name,item
+Maya owes 1500 for cakes,debt,1500,Maya,cakes
+Kamala owes me 800 for vegetables,debt,800,Kamala,vegetables
+Nimal took 3 packets of biscuits on credit 450,debt,450,Nimal,3 packets of biscuits
+Aunty Silva owes fifteen hundred for the cake,debt,1500,Aunty Silva,cake
+Sunil owes two thousand five hundred for rice,debt,2500,Sunil,rice
+Priya owes me 1.5k for the wedding cake,debt,1500,Priya,wedding cake
+Ruwan took 2 kg rice on credit 900,debt,900,Ruwan,2 kg rice
+Dilani owes 600/= for string hoppers,debt,600,Dilani,string hoppers
+Sold 5 buns to Chamari on credit 250,debt,250,Chamari,5 buns
+Gave Kasun 2 loaves on tab 300,debt,300,Kasun,2 loaves
+Nadeeka owes me rupees 1200 for tailoring,debt,1200,Nadeeka,tailoring
+Mala owes seven hundred and fifty for sweets,debt,750,Mala,sweets
+Ajith has to pay me 2000 for the curtains,debt,2000,Ajith,curtains
+Thilini took a cake on credit for 1800,debt,1800,Thilini,cake
+Kumari owes 3k for the lunch packets,debt,3000,Kumari,lunch packets
+Sold 3 loaves 600,income,600,,3 loaves
+Sold 10 samosas for 500,income,500,,10 samosas
+Sold two cakes for four thousand,income,4000,,two cakes
+Sold vegetables rs 1200,income,1200,,vegetables
+Received 3500 for the catering order,income,3500,,catering order
+Sold 2 kg rice 760 cash,income,760,,2 kg rice
+Sale 5000 today,income,5000,,
+Sold 4 short eats for 1k,income,1000,,4 short eats
+Earned 2k from sewing,income,2000,,sewing
+Sold 6 bottles of water 360/=,income,360,,6 bottles of water
+Got 900 for a birthday cake,income,900,,birthday cake
+Sold a dress for eight thousand,income,8000,,dress
+Made 1500 selling cookies,income,1500,,cookies
+Paid rent 5000,expense,5000,,rent
+Spent 800 on gas,expense,800,,gas
+Bought flour 2500,expense,2500,,flour
+Paid electricity bill 3200/=,expense,3200,,electricity bill
+Spent two thousand on ingredients,expense,2000,,ingredients
+Bought 10 kg sugar for 2200,expense,2200,,10 kg sugar
+Paid transport 450,expense,450,,transport
+Spent 1.2k on packaging,expense,1200,,packaging
+Paid the helper fifteen hundred,expense,1500,,helper
+Bought eggs rs 1800,expense,1800,,eggs
+Paid 600 for phone reload,expense,600,,phone reload
+Paid market stall fee 1000,expense,1000,,market stall fee
