@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from llm_parser import parse_text  # uses the LLM if ANTHROPIC_API_KEY is set, otherwise the regex parser
+from llm_parser import parse_text  # uses Groq if GROQ_API_KEY is set, otherwise the regex parser
 from rule_parser import parse_regex
 
 CSV_PATH = Path(__file__).resolve().parent.parent / "data" / "example_phrases.csv"

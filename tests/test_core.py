@@ -1,8 +1,10 @@
 import sys
 import tempfile
+import types
 import unittest
 from datetime import datetime, timedelta
 from pathlib import Path
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import database
@@ -101,6 +103,28 @@ class ParserTests(unittest.TestCase):
 
 
 class LlmParserTests(unittest.TestCase):
+    def test_default_llm_call_uses_groq_model(self):
+        response = types.SimpleNamespace(
+            choices=[types.SimpleNamespace(message=types.SimpleNamespace(content="{}"))]
+        )
+        create = Mock(return_value=response)
+        groq_module = types.ModuleType("groq")
+        groq_module.Groq = Mock(
+            return_value=types.SimpleNamespace(
+                chat=types.SimpleNamespace(
+                    completions=types.SimpleNamespace(create=create)
+                )
+            )
+        )
+
+        with patch.dict(sys.modules, {"groq": groq_module}), patch.dict(
+            "os.environ", {"GROQ_API_KEY": "test-key"}, clear=True
+        ):
+            result = llm_parser.default_llm_call("hello")
+
+        self.assertEqual(result, "{}")
+        self.assertEqual(create.call_args.kwargs["model"], "openai/gpt-oss-20b")
+
     def test_uses_llm_answer_when_valid(self):
         fake = lambda text: '```json\n{"intent":"debt","amount":1500,"contact_name":"maya","item":"cakes"}\n```'
         r = llm_parser.parse_text("whatever", llm_call=fake)

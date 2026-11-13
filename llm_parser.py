@@ -3,7 +3,11 @@ import json
 import os
 import re
 
+from dotenv import load_dotenv
+
 from rule_parser import parse_regex, unknown
+
+load_dotenv()
 
 VALID_INTENTS = {"income", "expense", "debt"}
 
@@ -22,16 +26,19 @@ Examples:
 
 
 def default_llm_call(text):
-    """Calls the Anthropic API. To use another provider, change only this function."""
-    import anthropic
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    message = client.messages.create(
-        model=os.getenv("LLM_MODEL", "claude-haiku-5-5"),
-        max_tokens=200,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": text}],
+    """Calls the Groq API."""
+    from groq import Groq
+
+    client = Groq()
+    completion = client.chat.completions.create(
+        model=os.getenv("LLM_MODEL", "openai/gpt-oss-20b"),
+        max_completion_tokens=200,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": text},
+        ],
     )
-    return message.content[0].text
+    return completion.choices[0].message.content
 
 
 def _validate(data):
@@ -61,7 +68,7 @@ def _validate(data):
 def parse_with_llm(text, llm_call=None):
     """Returns a validated dict, or None if the LLM is unavailable or its answer is unusable."""
     if llm_call is None:
-        if not os.getenv("ANTHROPIC_API_KEY"):
+        if not os.getenv("GROQ_API_KEY"):
             return None
         llm_call = default_llm_call
     try:

@@ -58,7 +58,9 @@ pip install -r requirements.txt
 Create a `.env` file (never commit it):
 
 ```env
-LLM_API_KEY=your_llm_api_key
+GROQ_API_KEY=your_groq_api_key
+# Optional; defaults to openai/gpt-oss-20b
+LLM_MODEL=openai/gpt-oss-20b
 TWILIO_ACCOUNT_SID=your_twilio_account_sid
 TWILIO_AUTH_TOKEN=your_twilio_auth_token
 TWILIO_PHONE_NUMBER=your_twilio_number
