@@ -13,10 +13,12 @@ NUMBER_WORDS = set(UNITS) | set(SCALES)
 
 NAME = r"[A-Za-z][A-Za-z'.-]*"
 NAME2 = rf"{NAME}(?:\s+{NAME})?"
-FILLERS = {"so", "and", "then", "today", "also", "ok", "okay", "hey", "note", "that", "yesterday", "please"}
+FILLERS = {"so", "and", "then", "today", "also", "ok", "okay", "hey", "note", "that", "yesterday", "please", "machan", "aiyo"}
+HONORIFIC_TRAIL = {"akka", "aiya"}
 ITEM_LEAD = {"for", "on", "of", "from", "selling", "the", "a", "an", "to", "cash", "only", "today", "at", "i", "we", "my", "some"}
-ITEM_TRAIL = {"for", "on", "of", "from", "to", "at", "cash", "only", "today", "credit", "tab", "around", "about"}
+ITEM_TRAIL = {"for", "on", "of", "from", "to", "at", "cash", "only", "today", "credit", "tab", "around", "about", "aiyo"}
 CURRENCY = {"rs", "rs.", "rupees", "rupee", "lkr", "/=", "/-"}
+TENS = {20, 30, 40, 50, 60, 70, 80, 90}
 
 DIGIT_RE = re.compile(r"(?<![\w.])((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)(\s?[kK])?(?![\w])(\s?/[=-])?")
 CREDIT = r"(?:credit|tab|account)"
@@ -31,6 +33,14 @@ INCOME_RE = re.compile(r"\b(sold|sale|sell|earned|received|got|made)\b", re.I)
 
 
 def words_to_number(words):
+    # Local shorthand: "seven fifty" = 750 (not 57)
+    if (
+        len(words) == 2
+        and words[0] in UNITS and 1 <= UNITS[words[0]] <= 9
+        and words[1] in UNITS and UNITS[words[1]] in TENS
+    ):
+        return UNITS[words[0]] * 100 + UNITS[words[1]]
+
     total, current = 0, 0
     for w in words:
         if w in UNITS:
@@ -54,6 +64,17 @@ def find_amounts(text):
     tokens = [(m.group().lower(), m.start(), m.end()) for m in re.finditer(r"[A-Za-z]+", text)]
     i = 0
     while i < len(tokens):
+        # "a thousand" / "a hundred"
+        if (
+            tokens[i][0] in {"a", "an"}
+            and i + 1 < len(tokens)
+            and tokens[i + 1][0] in SCALES
+            and re.fullmatch(r"\s+", text[tokens[i][2]:tokens[i + 1][1]])
+        ):
+            value = SCALES[tokens[i + 1][0]]
+            found.append((float(value), tokens[i][1], tokens[i + 1][2]))
+            i += 2
+            continue
         if tokens[i][0] in NUMBER_WORDS:
             j, words = i, [tokens[i][0]]
             while j + 1 < len(tokens):
@@ -96,6 +117,8 @@ def clean_name(raw):
     words = raw.split()
     while words and words[0].lower() in FILLERS:
         words.pop(0)
+    while words and words[-1].lower() in HONORIFIC_TRAIL:
+        words.pop()
     name = " ".join(words).strip(" .,'-")
     return name.title() if name else None
 

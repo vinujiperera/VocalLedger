@@ -1,0 +1,281 @@
+phrase,intent,amount,contact_name,item
+Ajith has to pay me 2000 for curtains,debt,2000,Ajith,curtains
+Ajith has to pay me 2000 for the curtains,debt,2000,Ajith,curtains
+Ajith has to pay me 2000/= for the curtains,debt,2000,Ajith,curtains
+Ajith has to pay me 2k for the curtains,debt,2000,Ajith,curtains
+Ajith has to pay me two thousand for the curtains,debt,2000,Ajith,curtains
+Ajith owes me seven fifty for sweets,debt,750,Ajith,sweets
+Ajith owes two thousand for curtains aiyo,debt,2000,Ajith,curtains
+Amara took 2 kg rice on tab nine hundred,debt,900,Amara,2 kg rice
+Aunty Silva owes 1.5k for the cake,debt,1500,Aunty Silva,cake
+Aunty Silva owes 1500 for the cake,debt,1500,Aunty Silva,cake
+Aunty Silva owes 1500/= for the cake,debt,1500,Aunty Silva,cake
+Aunty Silva owes fifteen hundred for the cake,debt,1500,Aunty Silva,cake
+Aunty Silva owes one thousand five hundred for the cake,debt,1500,Aunty Silva,cake
+Aunty Silva owes two thousand for cake,debt,2000,Aunty Silva,cake
+Chamari took 5 buns on credit 250/=,debt,250,Chamari,5 buns
+Dilani owes 1.5k for cakes,debt,1500,Dilani,cakes
+Dilani owes 600 for string hoppers,debt,600,Dilani,string hoppers
+Dilani owes 600/= for string hoppers,debt,600,Dilani,string hoppers
+Dilani owes rs 600 for string hoppers,debt,600,Dilani,string hoppers
+Dilani owes six hundred for string hoppers,debt,600,Dilani,string hoppers
+Farook owes six hundred for string hoppers,debt,600,Farook,string hoppers
+gave Chamari 5 buns on tab 250,debt,250,Chamari,5 buns
+Gave Kasun 2 loaves on tab 300,debt,300,Kasun,2 loaves
+Gave Kasun 2 loaves on tab 300/=,debt,300,Kasun,2 loaves
+Gave Kasun 2 loaves on tab three hundred,debt,300,Kasun,2 loaves
+Kamala owes 800 for vegetables aiyo,debt,800,Kamala,vegetables
+Kamala owes me 800 for vegetables,debt,800,Kamala,vegetables
+Kamala owes me eight hundred for vegetables,debt,800,Kamala,vegetables
+Kamala owes me rs 800 for vegetables,debt,800,Kamala,vegetables
+Kamala took vegetables on credit eight hundred,debt,800,Kamala,vegetables
+Kasun has to pay me 300/= for 2 loaves,debt,300,Kasun,2 loaves
+Kasun has to pay me three hundred for 2 loaves,debt,300,Kasun,2 loaves
+Kasun owes me 300 for 2 loaves,debt,300,Kasun,2 loaves
+Kumari has to pay me three thousand for lunch packets,debt,3000,Kumari,lunch packets
+Kumari owes 3000 for the lunch packets,debt,3000,Kumari,lunch packets
+Kumari owes 3k for the lunch packets,debt,3000,Kumari,lunch packets
+Kumari owes three thousand for lunch packets,debt,3000,Kumari,lunch packets
+Kumari owes three thousand for the lunch packets,debt,3000,Kumari,lunch packets
+Lakshmi akka owes 500 for samosas,debt,500,Lakshmi,samosas
+Lakshmi akka owes five hundred for samosas,debt,500,Lakshmi,samosas
+Lakshmi owes 500/= for the samosas,debt,500,Lakshmi,samosas
+Lakshmi owes seven fifty for sweets,debt,750,Lakshmi,sweets
+machan Ajith owes 2000/= for curtains,debt,2000,Ajith,curtains
+machan Maya owes 1500 for cakes,debt,1500,Maya,cakes
+machan Priya owes fifteen hundred for wedding cake,debt,1500,Priya,wedding cake
+machan Ravi owes 1.5k for kiribath,debt,1500,Ravi,kiribath
+Mala owes 750 for sweets,debt,750,Mala,sweets
+Mala owes me rupees 750 for sweets,debt,750,Mala,sweets
+Mala owes seven fifty for sweets,debt,750,Mala,sweets
+Mala owes seven hundred and fifty for sweets,debt,750,Mala,sweets
+Maya owes 1.5k for cakes,debt,1500,Maya,cakes
+Maya owes 1500 for cakes,debt,1500,Maya,cakes
+Maya owes 1500/= for cakes,debt,1500,Maya,cakes
+Maya owes fifteen hundred for cakes,debt,1500,Maya,cakes
+Maya owes me fifteen hundred for cakes,debt,1500,Maya,cakes
+Maya owes one thousand five hundred for cakes,debt,1500,Maya,cakes
+Nadeeka owes me 1.2k for tailoring,debt,1200,Nadeeka,tailoring
+Nadeeka owes me 1200 for tailoring,debt,1200,Nadeeka,tailoring
+Nadeeka owes me rs 1200 for tailoring,debt,1200,Nadeeka,tailoring
+Nadeeka owes me rupees 1200 for tailoring,debt,1200,Nadeeka,tailoring
+Nadeeka owes me twelve hundred for tailoring,debt,1200,Nadeeka,tailoring
+Nimal has to pay me 450 for biscuits,debt,450,Nimal,biscuits
+Nimal has to pay me four hundred and fifty for biscuits,debt,450,Nimal,biscuits
+Nimal took 3 packets of biscuits on credit 450,debt,450,Nimal,3 packets of biscuits
+Nimal took 3 packets of biscuits on credit four hundred and fifty,debt,450,Nimal,3 packets of biscuits
+Nimal took 3 packets of biscuits on credit rs 450,debt,450,Nimal,3 packets of biscuits
+Nimal took biscuits on credit four hundred and fifty,debt,450,Nimal,biscuits
+Nishani owes fifteen hundred for tailoring,debt,1500,Nishani,tailoring
+note Chamari owes two hundred and fifty for 5 buns,debt,250,Chamari,5 buns
+note Nadeeka owes twelve hundred for tailoring,debt,1200,Nadeeka,tailoring
+note Ruwan owes 900/= for 2 kg rice,debt,900,Ruwan,2 kg rice
+Priya owes 1500/= for wedding cake aiyo,debt,1500,Priya,wedding cake
+Priya owes me 1.5k for the wedding cake,debt,1500,Priya,wedding cake
+Priya owes me 1500 for the wedding cake,debt,1500,Priya,wedding cake
+Priya owes me 1500 for wedding cake,debt,1500,Priya,wedding cake
+Priya owes me 1500/= for the wedding cake,debt,1500,Priya,wedding cake
+Priya owes me fifteen hundred for the wedding cake,debt,1500,Priya,wedding cake
+Priya owes me one thousand five hundred for the wedding cake,debt,1500,Priya,wedding cake
+Ravi owes 2000 for kiribath aiyo,debt,2000,Ravi,kiribath
+Ravi took kiribath on tab 2000/=,debt,2000,Ravi,kiribath
+Ruwan owes me nine hundred for 2 kg rice,debt,900,Ruwan,2 kg rice
+Ruwan owes me rupees 900 for 2 kg rice,debt,900,Ruwan,2 kg rice
+Ruwan took 2 kg rice on credit 900,debt,900,Ruwan,2 kg rice
+Ruwan took 2 kg rice on credit 900/=,debt,900,Ruwan,2 kg rice
+Ruwan took 2 kg rice on credit nine hundred,debt,900,Ruwan,2 kg rice
+Saman akka owes 1000 for hoppers,debt,1000,Saman,hoppers
+Saman owes me 2.5k for rice,debt,2500,Saman,rice
+Saman owes one thousand for hoppers,debt,1000,Saman,hoppers
+Sanduni akka owes eight hundred for hoppers,debt,800,Sanduni,hoppers
+Sanduni owes twelve hundred for the short eats,debt,1200,Sanduni,short eats
+Sanduni took short eats on credit 1200,debt,1200,Sanduni,short eats
+Sold 5 buns to Chamari on credit 250,debt,250,Chamari,5 buns
+Sold 5 buns to Chamari on credit 250/=,debt,250,Chamari,5 buns
+Sold 5 buns to Chamari on credit two hundred and fifty,debt,250,Chamari,5 buns
+sold kiribath to Ravi on credit two thousand,debt,2000,Ravi,kiribath
+sold lunch packets to Kumari on credit 3000,debt,3000,Kumari,lunch packets
+sold samosas to Lakshmi on credit five hundred,debt,500,Lakshmi,samosas
+sold string hoppers to Dilani on credit 600,debt,600,Dilani,string hoppers
+Sunil owes 2.5k for rice,debt,2500,Sunil,rice
+Sunil owes 2500 for rice,debt,2500,Sunil,rice
+Sunil owes 2500 for the rice,debt,2500,Sunil,rice
+Sunil owes twenty five hundred for rice,debt,2500,Sunil,rice
+Sunil owes two thousand five hundred for rice,debt,2500,Sunil,rice
+Sunil owes two thousand five hundred for rice aiyo,debt,2500,Sunil,rice
+Thilini owes 1800 for cake aiyo,debt,1800,Thilini,cake
+Thilini owes me rupees 1800 for cake,debt,1800,Thilini,cake
+Thilini took a cake on credit for 1.8k,debt,1800,Thilini,cake
+Thilini took a cake on credit for 1800,debt,1800,Thilini,cake
+Thilini took a cake on credit for eighteen hundred,debt,1800,Thilini,cake
+Earned 2000 from sewing,income,2000,,sewing
+Earned 2000/= from sewing,income,2000,,sewing
+Earned 2k from sewing,income,2000,,sewing
+earned 8k from dress,income,8000,,dress
+earned five hundred from 10 samosas,income,500,,10 samosas
+Earned two thousand from sewing,income,2000,,sewing
+got 1200 for a vegetables,income,1200,,vegetables
+got 1500 for a cookies,income,1500,,cookies
+got 360 for a 6 bottles of water,income,360,,6 bottles of water
+got 360/= for a 6 bottles of water,income,360,,6 bottles of water
+Got 900 for a birthday cake,income,900,,birthday cake
+Got 900/= for a birthday cake,income,900,,birthday cake
+Got nine hundred for a birthday cake,income,900,,birthday cake
+got six hundred for a 3 loaves,income,600,,3 loaves
+got twelve hundred for a vegetables,income,1200,,vegetables
+Made 1.5k selling cookies,income,1500,,cookies
+made 1000 selling 4 short eats,income,1000,,4 short eats
+Made 1500 selling cookies,income,1500,,cookies
+Made 1500/= selling cookies,income,1500,,cookies
+Made fifteen hundred selling cookies,income,1500,,cookies
+Made one thousand five hundred selling cookies,income,1500,,cookies
+made thirty five hundred selling catering order,income,3500,,catering order
+Received 3.5k for the catering order,income,3500,,catering order
+Received 3500 for the catering order,income,3500,,catering order
+received 760 for the 2 kg rice,income,760,,2 kg rice
+received 900 for the birthday cake,income,900,,birthday cake
+received fifteen hundred for the kiribath,income,1500,,kiribath
+Received thirty five hundred for the catering order,income,3500,,catering order
+sale 1k,income,1000,,
+sale 1k today,income,1000,,
+sale 5000,income,5000,,
+Sale 5000 today,income,5000,,
+Sale 5000/= today,income,5000,,
+sale 5k,income,5000,,
+Sale 5k today,income,5000,,
+sale fifteen hundred,income,1500,,
+sale fifteen hundred today,income,1500,,
+sale five thousand,income,5000,,
+Sale five thousand today,income,5000,,
+sale two thousand,income,2000,,
+sale two thousand today,income,2000,,
+Sold 10 samosas for 0.5k,income,500,,10 samosas
+Sold 10 samosas for 500,income,500,,10 samosas
+Sold 10 samosas for 500/=,income,500,,10 samosas
+Sold 10 samosas for five hundred,income,500,,10 samosas
+Sold 2 kg rice 760 cash,income,760,,2 kg rice
+sold 2 kg rice seven hundred and sixty,income,760,,2 kg rice
+Sold 2 kg rice seven hundred and sixty cash,income,760,,2 kg rice
+Sold 3 loaves 600,income,600,,3 loaves
+Sold 3 loaves 600/=,income,600,,3 loaves
+sold 3 loaves for 600/=,income,600,,3 loaves
+Sold 3 loaves rs 600,income,600,,3 loaves
+Sold 3 loaves six hundred,income,600,,3 loaves
+sold 4 short eats 1000/=,income,1000,,4 short eats
+Sold 4 short eats for 1000,income,1000,,4 short eats
+Sold 4 short eats for 1k,income,1000,,4 short eats
+Sold 4 short eats for a thousand,income,1000,,4 short eats
+Sold 4 short eats for one thousand,income,1000,,4 short eats
+Sold 6 bottles of water 360,income,360,,6 bottles of water
+Sold 6 bottles of water 360/=,income,360,,6 bottles of water
+Sold 6 bottles of water three hundred and sixty,income,360,,6 bottles of water
+sold 6 bottles of water three hundred and sixty cash,income,360,,6 bottles of water
+Sold a dress for 8000,income,8000,,dress
+Sold a dress for 8k,income,8000,,dress
+Sold a dress for eight thousand,income,8000,,dress
+sold birthday cake nine hundred cash only,income,900,,birthday cake
+sold catering order 3.5k cash only,income,3500,,catering order
+sold cookies rs 1500,income,1500,,cookies
+sold dress for eight thousand,income,8000,,dress
+sold dress rs 8000,income,8000,,dress
+sold kiribath for 1.5k,income,1500,,kiribath
+sold kiribath for fifteen hundred cash,income,1500,,kiribath
+sold kiribath rs 1500,income,1500,,kiribath
+sold sewing 2000/=,income,2000,,sewing
+sold sewing for two thousand,income,2000,,sewing
+sold string hoppers 600/= cash only,income,600,,string hoppers
+sold string hoppers for 600,income,600,,string hoppers
+sold string hoppers six hundred,income,600,,string hoppers
+Sold two cakes for 4000,income,4000,,two cakes
+Sold two cakes for 4k,income,4000,,two cakes
+Sold two cakes for four thousand,income,4000,,two cakes
+Sold vegetables 1.2k,income,1200,,vegetables
+Sold vegetables 1200,income,1200,,vegetables
+Sold vegetables rs 1200,income,1200,,vegetables
+sold vegetables rs twelve hundred,income,1200,,vegetables
+Sold vegetables twelve hundred,income,1200,,vegetables
+today sold birthday cake 900/=,income,900,,birthday cake
+today sold cookies fifteen hundred,income,1500,,cookies
+today sold short eats one thousand,income,1000,,short eats
+today sold vegetables 1.2k,income,1200,,vegetables
+Bought 10 kg sugar for 2.2k,expense,2200,,10 kg sugar
+Bought 10 kg sugar for 2200,expense,2200,,10 kg sugar
+Bought 10 kg sugar for twenty two hundred,expense,2200,,10 kg sugar
+bought 10 kg sugar rs 2200,expense,2200,,10 kg sugar
+bought 10 kg sugar twenty two hundred,expense,2200,,10 kg sugar
+Bought eggs 1.8k,expense,1800,,eggs
+Bought eggs 1800,expense,1800,,eggs
+Bought eggs eighteen hundred,expense,1800,,eggs
+Bought eggs rs 1800,expense,1800,,eggs
+bought electricity bill for thirty two hundred,expense,3200,,electricity bill
+Bought flour 2.5k,expense,2500,,flour
+Bought flour 2500,expense,2500,,flour
+Bought flour twenty five hundred,expense,2500,,flour
+Bought flour two thousand five hundred,expense,2500,,flour
+bought helper 1.5k,expense,1500,,helper
+bought helper 1500,expense,1500,,helper
+bought helper rs 1500,expense,1500,,helper
+bought ingredients 2000,expense,2000,,ingredients
+bought ingredients rs 2000,expense,2000,,ingredients
+bought market stall fee 1000,expense,1000,,market stall fee
+bought oil for 900,expense,900,,oil
+bought oil for nine hundred,expense,900,,oil
+bought packaging for twelve hundred,expense,1200,,packaging
+bought phone reload for six hundred,expense,600,,phone reload
+bought rent five thousand,expense,5000,,rent
+bought rent for 5k,expense,5000,,rent
+bought rent rs 5000,expense,5000,,rent
+bought transport 450,expense,450,,transport
+bought transport rs 450,expense,450,,transport
+paid 1.2k for packaging,expense,1200,,packaging
+Paid 600 for phone reload,expense,600,,phone reload
+Paid 600/= for phone reload,expense,600,,phone reload
+paid 800 for gas,expense,800,,gas
+paid eggs 1800/=,expense,1800,,eggs
+Paid electricity bill 3200,expense,3200,,electricity bill
+Paid electricity bill 3200/=,expense,3200,,electricity bill
+Paid electricity bill thirty two hundred,expense,3200,,electricity bill
+paid ingredients 2k,expense,2000,,ingredients
+Paid market stall fee 1000,expense,1000,,market stall fee
+Paid market stall fee 1k,expense,1000,,market stall fee
+Paid market stall fee a thousand,expense,1000,,market stall fee
+Paid market stall fee one thousand,expense,1000,,market stall fee
+paid oil 900/=,expense,900,,oil
+paid packaging 1200/=,expense,1200,,packaging
+Paid rent 5000,expense,5000,,rent
+Paid rent 5000/=,expense,5000,,rent
+Paid rent 5k,expense,5000,,rent
+Paid rent five thousand,expense,5000,,rent
+Paid rs 600 for phone reload,expense,600,,phone reload
+Paid six hundred for phone reload,expense,600,,phone reload
+paid the electricity bill 3200/=,expense,3200,,electricity bill
+paid the gas rs 800,expense,800,,gas
+Paid the helper 1.5k,expense,1500,,helper
+Paid the helper 1500,expense,1500,,helper
+Paid the helper 1500/=,expense,1500,,helper
+Paid the helper fifteen hundred,expense,1500,,helper
+Paid the helper one thousand five hundred,expense,1500,,helper
+paid the market stall fee 1k,expense,1000,,market stall fee
+paid the market stall fee one thousand,expense,1000,,market stall fee
+Paid transport 450,expense,450,,transport
+Paid transport four hundred and fifty,expense,450,,transport
+Paid transport rs 450,expense,450,,transport
+Spent 1.2k on packaging,expense,1200,,packaging
+spent 1.8k on eggs today,expense,1800,,eggs
+Spent 1200 on packaging,expense,1200,,packaging
+spent 1800 on eggs today,expense,1800,,eggs
+spent 2.2k on 10 kg sugar,expense,2200,,10 kg sugar
+spent 2.5k on flour today,expense,2500,,flour
+Spent 2000 on ingredients,expense,2000,,ingredients
+Spent 2000/= on ingredients,expense,2000,,ingredients
+Spent 2k on ingredients,expense,2000,,ingredients
+spent 600 on phone reload,expense,600,,phone reload
+spent 600/= on phone reload,expense,600,,phone reload
+Spent 800 on gas,expense,800,,gas
+Spent eight hundred on gas,expense,800,,gas
+spent eight hundred on gas today,expense,800,,gas
+Spent rs 1200 on packaging,expense,1200,,packaging
+Spent rs 800 on gas,expense,800,,gas
+Spent twelve hundred on packaging,expense,1200,,packaging
+spent two thousand five hundred on flour,expense,2500,,flour
+Spent two thousand on ingredients,expense,2000,,ingredients
