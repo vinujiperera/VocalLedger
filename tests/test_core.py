@@ -22,6 +22,13 @@ class DatabaseTests(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
+    def test_demo_seed_is_localized_and_idempotent(self):
+        database.init_db(self.db, seed_demo=True)
+        database.init_db(self.db, seed_demo=True)
+        debts = database.list_debts(db_path=self.db)
+        self.assertGreaterEqual(len(debts), 2)
+        self.assertEqual(database.cash_in_hand(db_path=self.db)["liquid_cash"], 2250)
+
     def test_debt_creates_open_receivable_with_due_date(self):
         r = database.add_transaction("debt", 1500, "cakes", "Maya", now=self.now, db_path=self.db)
         self.assertEqual(r["due_date"], "2026-11-19")
@@ -91,6 +98,8 @@ class ParserTests(unittest.TestCase):
         self.assertEqual((r["intent"], r["amount"], r["item"]), ("income", 600, "3 loaves"))
         r = parse_regex("paid rent 5000/=")
         self.assertEqual((r["intent"], r["amount"], r["item"]), ("expense", 5000, "rent"))
+        r = parse_regex("bought flour 2500")
+        self.assertEqual((r["intent"], r["amount"], r["item"]), ("expense", 2500, "flour"))
 
     def test_unclear_input_is_unknown_with_a_message(self):
         for text in ("hello", "sold cakes", ""):
@@ -174,6 +183,8 @@ class LlmParserTests(unittest.TestCase):
     def test_llm_unknown_is_kept_without_regex_override(self):
         fake = lambda text: '{"intent":"unknown","amount":null,"contact_name":null,"item":null}'
         self.assertEqual(llm_parser.parse_text("hello", llm_call=fake)["intent"], "unknown")
+        owes_text = "Maya owes 1500 for cakes"
+        self.assertEqual(llm_parser.parse_text(owes_text, llm_call=fake)["intent"], "unknown")
 
     def test_accepts_string_amounts_from_llm(self):
         fake = lambda text: '{"intent":"debt","amount":"1500","contact_name":"Maya","item":"cakes"}'

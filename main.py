@@ -6,7 +6,10 @@ from typing import Literal, Optional
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
+from pathlib import Path
 
 load_dotenv()  # reads the API key from the .env file (never commit that file)
 
@@ -16,12 +19,15 @@ import llm_parser  # noqa: E402
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    database.init_db()
+    database.init_db(seed_demo=True)
     yield
 
 
 app = FastAPI(title="VocalLedger", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+ROOT = Path(__file__).resolve().parent
+app.mount("/static", StaticFiles(directory=ROOT / "static"), name="static")
 
 
 class ParseRequest(BaseModel):
@@ -39,7 +45,7 @@ class TransactionIn(BaseModel):
 
 @app.get("/")
 def root():
-    return {"status": "VocalLedger is running"}
+    return FileResponse(ROOT / "static" / "index.html")
 
 
 @app.post("/parse")
@@ -89,3 +95,13 @@ def balance(name: str):
 @app.get("/cash-in-hand")
 def cash_in_hand(on_date: Optional[date] = None):
     return database.cash_in_hand(on_date)
+
+
+@app.get("/demo-data/source")
+def demo_data_source():
+    return {
+        "source": database.DEMO_DATA_SOURCE,
+        "license": "MIT",
+        "dataset": "data/example_phrases.csv",
+        "localization": "Sri Lankan rupees (Rs.) and local items",
+    }

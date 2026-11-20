@@ -186,7 +186,8 @@ def parse_with_llm(text, llm_call=None):
 
     Returns:
       dict result on success (including intentional unknown),
-      None if the API failed or output stayed invalid after retry.
+      None only if the API is unreachable or output stayed invalid after retry.
+      Invalid structured output is not passed to the rule fallback.
     """
     if llm_call is None:
         if not os.getenv("GROQ_API_KEY"):
@@ -205,7 +206,7 @@ def parse_with_llm(text, llm_call=None):
 
 
 def parse_text(text, llm_call=None):
-    """Main API entry: LLM first, regex fallback if the model is unreachable/unusable."""
+    """Main API entry: LLM first, regex fallback only if the model is unreachable."""
     text = (text or "").strip()
     if not text:
         return unknown_result(source="llm")
