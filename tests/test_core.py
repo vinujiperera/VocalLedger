@@ -22,6 +22,13 @@ class DatabaseTests(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
+    def test_demo_seed_is_localized_and_idempotent(self):
+        database.init_db(self.db, seed_demo=True)
+        database.init_db(self.db, seed_demo=True)
+        debts = database.list_debts(db_path=self.db)
+        self.assertGreaterEqual(len(debts), 2)
+        self.assertEqual(database.cash_in_hand(db_path=self.db)["liquid_cash"], 2250)
+
     def test_debt_creates_open_receivable_with_due_date(self):
         r = database.add_transaction("debt", 1500, "cakes", "Maya", now=self.now, db_path=self.db)
         self.assertEqual(r["due_date"], "2026-11-19")
@@ -91,6 +98,8 @@ class ParserTests(unittest.TestCase):
         self.assertEqual((r["intent"], r["amount"], r["item"]), ("income", 600, "3 loaves"))
         r = parse_regex("paid rent 5000/=")
         self.assertEqual((r["intent"], r["amount"], r["item"]), ("expense", 5000, "rent"))
+        r = parse_regex("bought flour 2500")
+        self.assertEqual((r["intent"], r["amount"], r["item"]), ("expense", 2500, "flour"))
 
     def test_unclear_input_is_unknown_with_a_message(self):
         for text in ("hello", "sold cakes", ""):
@@ -124,24 +133,69 @@ class LlmParserTests(unittest.TestCase):
 
         self.assertEqual(result, "{}")
         self.assertEqual(create.call_args.kwargs["model"], "openai/gpt-oss-20b")
+        self.assertEqual(create.call_args.kwargs["temperature"], 0)
 
     def test_uses_llm_answer_when_valid(self):
         fake = lambda text: '```json\n{"intent":"debt","amount":1500,"contact_name":"maya","item":"cakes"}\n```'
         r = llm_parser.parse_text("whatever", llm_call=fake)
         self.assertEqual((r["source"], r["contact_name"], r["amount"]), ("llm", "Maya", 1500))
 
-    def test_falls_back_to_regex_when_llm_fails_or_returns_junk(self):
-        def broken(text):
-            raise RuntimeError("API down")
-        self.assertEqual(llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=broken)["source"], "regex")
-        junk = lambda text: "I think this is a debt"
-        self.assertEqual(llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=junk)["source"], "regex")
-        bad = lambda text: '{"intent":"debt","amount":-5,"contact_name":"Maya","item":null}'
-        self.assertEqual(llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=bad)["source"], "regex")
+    def test_retries_invalid_output_then_accepts_valid_output(self):
+        calls = []
+        responses = iter([
+            '{"intent":"debt","amount":"many","contact_name":"Maya","item":"cakes"}',
+            '{"intent":"debt","amount":1500,"contact_name":"Maya","item":"cakes"}',
+        ])
 
-    def test_llm_unknown_falls_back_to_regex_then_unknown(self):
+        def fake(text):
+            calls.append(text)
+            return next(responses)
+
+        r = llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=fake)
+        self.assertEqual(r["intent"], "debt")
+        self.assertEqual(r["amount"], 1500)
+        self.assertEqual(len(calls), 2)
+
+    def test_falls_back_to_regex_when_api_fails(self):
+        broken_calls = []
+
+        def broken(text):
+            broken_calls.append(text)
+            raise RuntimeError("API down")
+
+        r = llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=broken)
+        self.assertEqual(r["intent"], "debt")
+        self.assertEqual(r["amount"], 1500)
+        self.assertEqual(r["source"], "regex")
+        self.assertEqual(len(broken_calls), 2)
+
+    def test_retries_then_unknown_for_invalid_llm_output(self):
+        junk = lambda text: "I think this is a debt"
+        self.assertEqual(llm_parser.parse_text("hello there", llm_call=junk)["intent"], "unknown")
+
+        bad = lambda text: '{"intent":"debt","amount":-5,"contact_name":"Maya","item":null}'
+        # Invalid after retry -> unknown (confirmation/typed fallback is the safety net)
+        self.assertEqual(
+            llm_parser.parse_text("Maya owes 1500 for cakes", llm_call=bad)["intent"],
+            "unknown",
+        )
+
+    def test_llm_unknown_is_kept_without_regex_override(self):
         fake = lambda text: '{"intent":"unknown","amount":null,"contact_name":null,"item":null}'
         self.assertEqual(llm_parser.parse_text("hello", llm_call=fake)["intent"], "unknown")
+        owes_text = "Maya owes 1500 for cakes"
+        self.assertEqual(llm_parser.parse_text(owes_text, llm_call=fake)["intent"], "unknown")
+
+    def test_accepts_string_amounts_from_llm(self):
+        fake = lambda text: '{"intent":"debt","amount":"1500","contact_name":"Maya","item":"cakes"}'
+        r = llm_parser.parse_text("whatever", llm_call=fake)
+        self.assertEqual(r["amount"], 1500)
+        self.assertEqual(r["source"], "llm")
+
+    def test_seven_fifty_spoken_form(self):
+        r = parse_regex("Mala owes seven fifty for sweets")
+        self.assertEqual((r["intent"], r["amount"], r["contact_name"], r["item"]), ("debt", 750, "Mala", "sweets"))
+
 
 
 if __name__ == "__main__":

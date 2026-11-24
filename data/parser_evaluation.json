@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-11-18T18:26:44.079116+00:00",
+  "dataset": "D:\\Projects\\VocalLedger\\VocalLedger\\data\\test_phrases.csv",
+  "llm_key_configured": true,
+  "model": "openai/gpt-oss-20b",
+  "llm_probe": {
+    "ok": false,
+    "detail": "AuthenticationError: Error code: 401 - {'error': {'message': 'Invalid API Key', 'type': 'invalid_request_error', 'code': 'invalid_api_key'}}"
+  },
+  "label": "Regex parser (LLM unavailable)",
+  "phrase_count": 280,
+  "core_correct": 280,
+  "item_correct": 280,
+  "core_accuracy": 1.0,
+  "item_accuracy": 1.0,
+  "per_intent": {
+    "debt": {
+      "total": 109,
+      "core": 109,
+      "item": 109
+    },
+    "income": {
+      "total": 90,
+      "core": 90,
+      "item": 90
+    },
+    "expense": {
+      "total": 81,
+      "core": 81,
+      "item": 81
+    }
+  },
+  "sources": {
+    "regex": 280
+  },
+  "failures": [],
+  "note": "LLM probe failed, so this report is the regex baseline only. It does not measure AI-parser accuracy."
+}

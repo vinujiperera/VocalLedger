@@ -7,6 +7,12 @@ DB_PATH = Path(__file__).parent / "vocalledger.db"
 INTENTS = ("income", "expense", "debt")
 
 SCHEMA = """
+CREATE TABLE IF NOT EXISTS demo_seed (
+    id INTEGER PRIMARY KEY CHECK (id = 1),
+    source TEXT NOT NULL,
+    seeded_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS contacts (
     id    INTEGER PRIMARY KEY AUTOINCREMENT,
     name  TEXT NOT NULL UNIQUE COLLATE NOCASE,
@@ -42,10 +48,45 @@ def _connect(db_path=DB_PATH):
     return conn
 
 
-def init_db(db_path=DB_PATH):
-    """Create the three tables if they do not exist yet."""
+DEMO_DATA_SOURCE = "VocalLedger example_phrases.csv (MIT License)"
+
+
+def init_db(db_path=DB_PATH, seed_demo=False):
+    """Create the three tables and optionally seed an empty demo ledger."""
     with _connect(db_path) as conn:
         conn.executescript(SCHEMA)
+    if seed_demo:
+        seed_demo_data(db_path)
+
+
+def seed_demo_data(db_path=DB_PATH):
+    """Add localized, licensed demo transactions once."""
+    with _connect(db_path) as conn:
+        conn.executescript(SCHEMA)
+        if conn.execute("SELECT 1 FROM demo_seed WHERE id = 1").fetchone():
+            return
+
+    now = datetime.now()
+    entries = (
+        ("income", 600, "3 loaves", None),
+        ("expense", 500, "rent", None),
+        ("income", 1200, "vegetables", None),
+        ("debt", 1500, "cakes", "Maya"),
+        ("debt", 800, "2 kg rice", "Ruwan"),
+        ("debt", 450, "5 buns", "Chamari"),
+    )
+    for intent, amount, item, contact_name in entries:
+        saved = add_transaction(
+            intent, amount, item=item, contact_name=contact_name,
+            due_days=7, now=now, db_path=db_path,
+        )
+        if intent == "debt" and contact_name == "Chamari":
+            mark_paid(saved["receivable_id"], now=now, db_path=db_path)
+    with _connect(db_path) as conn:
+        conn.execute(
+            "INSERT INTO demo_seed (id, source, seeded_at) VALUES (1, ?, ?)",
+            (DEMO_DATA_SOURCE, datetime.now().isoformat(timespec="seconds")),
+        )
 
 
 def _get_or_create_contact(conn, name, phone=None):

@@ -83,3 +83,10 @@ Note: Twilio trial accounts can only send SMS to verified numbers.
 ## License
 
 MIT
+
+## Demo data attribution
+
+The optional demo ledger is localized from the MIT-licensed project dataset
+`data/example_phrases.csv`, created for VocalLedger. Amounts use Sri Lankan rupees
+and local items such as loaves, vegetables, rice, and buns. Demo records are only
+added to an empty database and never overwrite existing transactions.

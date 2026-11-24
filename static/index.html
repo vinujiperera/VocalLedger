@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VocalLedger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <button class="brand" aria-label="VocalLedger home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7.5 4v16M12 7v10M16.5 9.5v5M3.5 11.5v1M20.5 11v2" /></svg>
+          </span>
+          <span>VocalLedger</span>
+        </button>
+        <div class="language-toggle" aria-label="Language">
+          <button class="active" type="button">EN</button>
+          <button type="button" disabled>SI</button>
+          <button type="button" disabled>TA</button>
+        </div>
+        <button class="avatar" type="button" aria-label="Account">VL</button>
+      </header>
+
+      <section class="chat-panel" aria-label="Chat">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">TODAY</p>
+            <h1>Ledger chat</h1>
+          </div>
+          <button class="dashboard-link" id="dashboardLink" type="button">
+            <span>Dashboard</span>
+            <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <div class="assistant-message">
+            <span class="assistant-avatar">VL</span>
+            <div class="assistant-copy">
+              <p>Hi! Tell me about a sale, expense, or money owed.</p>
+              <span>Today</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="composer">
+        <div class="quick-prompts" id="quickPrompts">
+          <button type="button" data-text="Maya owes 1500 for cakes">Maya owes 1500 for cakes</button>
+          <button type="button" data-text="Sold 3 loaves 600">Sold 3 loaves 600</button>
+        </div>
+        <form class="input-row" id="chatForm">
+          <button class="mic-button" id="micButton" type="button" aria-label="Start voice input">
+            <svg class="mic-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="3" width="6" height="11" rx="3" />
+              <path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M9 21h6" />
+            </svg>
+          </button>
+          <label class="text-input">
+            <span class="sr-only">Message</span>
+            <input id="messageInput" type="text" maxlength="500" autocomplete="off" placeholder="Type a transaction..." />
+          </label>
+          <button class="send-button" type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" /></svg>
+          </button>
+        </form>
+        <p class="listening-status" id="listeningStatus" role="status"></p>
+        <p class="demo-credit">Demo data: <a href="/demo-data/source">VocalLedger sample dataset · MIT License</a></p>
+      </footer>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
